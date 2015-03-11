@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jquery原图对比</title>
+	<style type="text/css">
+		* { margin: 0; padding: 0; }
+
+		.page-wrap .contrast-box {
+			margin: 5px auto;
+		}
+
+		/* 此处样式可用于设置dragButton*/
+		.dragButtonStyle {
+			position: absolute;
+			left: 50%;
+			margin-left: -15px;
+			bottom: 30px;
+			width: 30px;
+			height: 30px;
+			background: #FFF;
+			color: #757575;
+			font: bold 14px "SimHei";
+			text-align: center;
+			z-index: 2;
+			cursor: ew-resize;
+			border-radius: 100%;
+		}
+
+		.dragButtonStyle span {
+			line-height: 30px;
+			margin: 0 2px;
+			color: #F00;
+		}
+	</style>
+</head>
+<body>
+	<div class="page-wrap">
+		<div id="contrast1" class="contrast-box">
+			<img src="images/VFX3-before.jpg" alt="" />
+			<img src="images/VFX3-after.jpg" alt="" />
+		</div>
+
+		<div id="contrast2" class="contrast-box">
+			<img src="images/VFX-before.jpg" alt="">
+			<img src="images/VFX-after.jpg" alt="">
+		</div>
+
+		<div id="contrast3" class="contrast-box">
+			<img src="images/VFX2-before.jpg" alt="">
+			<img src="images/VFX2-after.jpg" alt="">
+		</div>
+	</div>
+	<script type="text/javascript" src="scripts/jquery-1.8.3.js"></script>
+	<script type="text/javascript" src="scripts/jquery.contrast.min.js"></script>
+	<script type="text/javascript">
+		// 调用方式一，保持默认，无需设置
+		// $('#contrast1, #contrast2, #contrast3').contrast();
+
+
+		// 调用方式二，通过设置dragButton的样式
+		$('#contrast1, #contrast2, #contrast3').contrast({
+			dragButton: {
+				bottom: '0',
+				height: '14px',
+				border: 'solid #FFF',
+				borderWidth: '2px 2px 0',
+				background: '#555',
+				color: '#FFF',
+				borderRadius: 'none',
+				cursor: 'pointer'
+			}
+		});
+
+		// 调用方式三，通过类名设置dragButton的样式
+		// $('#contrast1, #contrast2, #contrast3').contrast({
+		// 	selfClass: 'dragButtonStyle'
+		// });
+	</script>
+</body>
+</html>
